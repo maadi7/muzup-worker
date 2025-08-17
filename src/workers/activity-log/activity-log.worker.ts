@@ -14,7 +14,6 @@ import {
   logRefundOrderLoyaltyPoints,
   logSquareStatusChange,
   logUserLogin,
-  logUserLogout,
   logWebsiteBuilderChanges,
 } from "./activity-log.process";
 
@@ -54,9 +53,7 @@ export const activityLogWorker = new Worker<ActivityLogQueueData>(
       case ActivityActionType.USER_LOGIN:
         await logUserLogin(restaurantId, logData, userId);
         break;
-      case ActivityActionType.USER_LOGOUT:
-        await logUserLogout(restaurantId, logData, userId);
-        break;
+
       case ActivityActionType.MENU_STATUS:
         await logMenuStatusChange(restaurantId, logData, userId, status);
         break;
