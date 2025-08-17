@@ -1,0 +1,121 @@
+<table
+  align="center"
+  width="100%"
+  border="0"
+  cellpadding="0"
+  cellspacing="0"
+  role="presentation"
+  style="padding: 0px 35px 25px 35px; max-width: 600px; margin: 0 auto;"
+>
+  <tbody>
+    <tr>
+      <td style="background-color: #FFFFFF; border-radius: 8px; padding: 32px;">
+        <p
+          style="font-size:16px;line-height:1.5;margin:0 0 24px 0;color:#1A1A1A;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;font-weight:600;"
+        >
+          Hi
+          {{restaurantName}}
+          Team,
+        </p>
+        <div
+          style="font-size:15px;line-height:1.6;margin:0 0 24px 0;color:#2D3748;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;"
+        >
+          {{#if isActive}}
+            <p style="margin:0 0 16px 0;">Your online ordering system has been
+              <span style="color:#16A34A;font-weight:600;">switched on</span>.
+              You're now ready to receive orders through your Choose website.</p>
+
+            <p style="margin:0 0 16px 0;">Your customers can place orders
+              according to your scheduled operating hours, and all your menu
+              items are available as per your latest settings.</p>
+
+            <p style="margin:0 0 16px 0;">If you need to make any adjustments to
+              your menu or hours, you can do so anytime through your Choose
+              dashboard.</p>
+          {{else}}
+            <p style="margin:0 0 16px 0;">Your online ordering system has been
+              <span style="color:#DC2626;font-weight:600;">switched off</span>.
+              This means:</p>
+
+            <div
+              style="background-color:#F8FAFC;border-radius:6px;padding:16px 20px;margin:16px 0;"
+            >
+              <ul style="margin:0;padding-left:20px;list-style-type:none;">
+                <li style="margin-bottom:12px;position:relative;">
+                  <span
+                    style="position:absolute;left:-20px;color:#64748B;"
+                  >•</span>
+                  No customers can place orders through your website
+                </li>
+                <li style="margin-bottom:12px;position:relative;">
+                  <span
+                    style="position:absolute;left:-20px;color:#64748B;"
+                  >•</span>
+                  Your restaurant won't receive any orders, regardless of your
+                  scheduled hours
+                </li>
+                <li style="margin-bottom:0;position:relative;">
+                  <span
+                    style="position:absolute;left:-20px;color:#64748B;"
+                  >•</span>
+                  Your landing page will be visible, but customer can't access
+                  the menu or create orders
+                </li>
+              </ul>
+            </div>
+
+            <p style="margin:16px 0;">To resume accepting orders, simply toggle
+              the "Online Ordering" switch back on in your Choose dashboard.</p>
+
+            <p style="margin:16px 0;">If this was unintentional, please
+              reactivate online ordering or contact our support team if you face
+              any issues.</p>
+
+            <p style="margin:16px 0;">We're here to help ensure you don't miss
+              out on any orders.</p>
+
+            <p style="margin:16px 0;">Looking forward to seeing your restaurant
+              back online.</p>
+          {{/if}}
+        </div>
+
+        <a
+          href="https://www.restaurant.choosepos.com/restaurant-settings"
+          style="background-color:#2947C2;border-radius:6px;color:#ffffff;display:inline-block;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:14px;font-weight:600;line-height:1;margin:0 0 24px 0;padding:14px 28px;text-decoration:none;text-align:center;transition:all 0.2s;"
+          target="_blank"
+        >
+          Manage Online Ordering
+        </a>
+
+        <div style="border-top:1px solid #E2E8F0;margin:24px 0;"></div>
+
+        <p
+          style="font-size:14px;line-height:1.6;margin:0 0 16px 0;color:#4A5568;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;"
+        >
+          As always, we're here to support you. If you need any assistance,
+          reach out to us at
+          <a
+            href="mailto:support@choose.com"
+            style="color:#2947C2;text-decoration:none;border-bottom:1px solid #2947C2;"
+            target="_blank"
+          >support@choose.com</a>.
+        </p>
+
+        <p
+          style="font-size:14px;line-height:1.6;margin:24px 0 0 0;color:#4A5568;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;"
+        >
+          Best regards,<br />
+          <strong style="color:#1A1A1A;">Choose Team</strong>
+          {{#unless isActive}}
+            <p
+              style="margin:24px 0 0 0;padding:16px;background-color:#EDF2F7;border-radius:6px;font-style:italic;color:#4A5568;"
+            >
+              P.S. We value our partnership and want to ensure your business
+              continues to thrive on our platform!
+            </p>
+          {{/unless}}
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>

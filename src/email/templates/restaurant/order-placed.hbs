@@ -1,0 +1,311 @@
+<table
+  align="center"
+  width="100%"
+  border="0"
+  cellpadding="0"
+  cellspacing="0"
+  role="presentation"
+  style="padding: 0px 20px 20px 20px"
+>
+
+  <body
+    style="font-family: Karla, sans-serif; max-width: 600px; margin: 0 auto; padding: 0 25px; line-height: 1.5; color: #333; font-size: 12px;"
+  >
+    <div style="text-align: start; margin-bottom: 10px; margin: 8px 10px;">
+
+      <p
+        style="font-size: 14px; line-height: 24px; margin: 24px 0 0 0; color: #333;"
+      >
+        Hello
+        {{customerName}},
+      </p>
+      <p
+        style="font-size: 14px; line-height: 24px; margin: 12px 0; color: #333;"
+      >
+        Please find your order details below.
+      </p>
+    </div>
+
+    <div style="text-align: center; margin-bottom: 10px; margin-top: 20px;">
+      <h1 style="margin: 0; font-size: 16px; font-weight: bold;">Order Details</h1>
+    </div>
+
+    <hr style="border: none; border-top: 1px solid #ddd; margin: 8px 0;" />
+
+    <!-- Row: Order ID -->
+    <table
+      role="presentation"
+      width="100%"
+      border="0"
+      cellspacing="0"
+      cellpadding="0"
+      style="font-size: 14px; padding: 8px 10px;"
+    >
+      <tr style="margin-bottom: 4px;">
+        <td align="left" style="font-size: 14px;">Order ID:</td>
+        <td align="right" style="font-size: 14px;">{{orderId}}</td>
+      </tr>
+      <tr style="margin-bottom: 4px;">
+        <td align="left" style="font-size: 14px;">Order Time:</td>
+        <td align="right" style="font-size: 14px;">{{orderTime}}</td>
+      </tr>
+      <tr style="margin-bottom: 4px;">
+        <td align="left" style="font-size: 14px;">{{orderType}} Time:</td>
+        <td align="right" style="font-size: 14px;">{{pickUpDateAndTime}}</td>
+      </tr>
+    </table>
+
+    <hr style="border: none; border-top: 1px solid #ddd; margin: 8px 0;" />
+
+    <div style="margin: 8px 10px;">
+      <!-- Header for Items -->
+      <table
+        role="presentation"
+        width="100%"
+        border="0"
+        cellspacing="0"
+        cellpadding="0"
+        style="margin-bottom: 4px; font-size: 14px;"
+      >
+        <tr>
+          <td align="left">
+            <h2
+              style="margin: 0 0 8px 0; font-size: 14px; font-weight: bold;"
+            >Item</h2>
+          </td>
+          <td align="right">
+            <h2
+              style="margin: 0 0 8px 0; font-size: 14px; font-weight: bold;"
+            >Total</h2>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Free Item (if available) -->
+      {{#if freeItem}}
+        <table
+          role="presentation"
+          width="100%"
+          border="0"
+          cellspacing="0"
+          cellpadding="0"
+          style="margin-bottom: 4px; font-size: 14px;"
+        >
+          <tr>
+            <td align="left" style="font-size: 14px;">{{freeItem}}
+              x 1</td>
+            <td align="right" style="font-size: 14px;">FREE</td>
+          </tr>
+        </table>
+      {{/if}}
+
+      <!-- Loop through Items -->
+      {{#each items}}
+        <table
+          role="presentation"
+          width="100%"
+          border="0"
+          cellspacing="0"
+          cellpadding="0"
+          style="margin-bottom: 4px; font-size: 14px;"
+        >
+          <tr>
+            <td align="left" style="font-size: 14px;">{{name}}
+              x
+              {{quantity}}</td>
+            <td align="right" style="font-size: 14px;">${{total}}</td>
+          </tr>
+        </table>
+        {{#if modifier}}
+          <div style="margin-left: 20px; font-size: 12px; color: #666;">
+            {{#each modifier}}
+              {{#if mod}}
+                <div style="margin-left: 20px; font-size: 12px; color: #666;">
+                  {{#each mod}}
+                    <table
+                      role="presentation"
+                      width="100%"
+                      border="0"
+                      cellspacing="0"
+                      cellpadding="0"
+                    >
+                      <tr>
+                        <td align="left" style="font-size: 12px;">{{mName}}
+                          x
+                          {{mQty}}</td>
+                      </tr>
+                    </table>
+                  {{/each}}
+                </div>
+              {{/if}}
+            {{/each}}
+          </div>
+        {{/if}}
+        {{#if itemRemarks}}
+          <table
+            role="presentation"
+            width="100%"
+            border="0"
+            cellspacing="0"
+            cellpadding="0"
+            style="margin: 4px 0; font-size: 10px;"
+          >
+            <tr>
+              <td align="left" style="font-size: 10px;">remarks:
+                {{itemRemarks}}</td>
+            </tr>
+          </table>
+        {{/if}}
+      {{/each}}
+
+    </div>
+
+    <hr style="border: none; border-top: 1px solid #ddd; margin: 8px 0;" />
+
+    <div style="margin: 8px 10px;">
+      <!-- Row: Gross Amount -->
+      <table
+        role="presentation"
+        width="100%"
+        border="0"
+        cellspacing="0"
+        cellpadding="0"
+        style="margin-bottom: 4px; font-size: 14px;"
+      >
+        <tr>
+          <td align="left" style="font-size: 14px;">Gross Amount</td>
+          <td align="right" style="font-size: 14px;">${{subTotal}}</td>
+        </tr>
+      </table>
+      <!-- Row: Discount -->
+      {{#if discountAmount}}
+        <table
+          role="presentation"
+          width="100%"
+          border="0"
+          cellspacing="0"
+          cellpadding="0"
+          style="margin-bottom: 4px; font-size: 14px;"
+        >
+          <tr>
+            <td align="left" style="font-size: 14px;">Discount</td>
+            <td align="right" style="font-size: 14px;">- ${{discountAmount}}</td>
+          </tr>
+        </table>
+      {{/if}}
+      <!-- Row: Net Amount -->
+      {{#if discountAmount}}
+        <table
+          role="presentation"
+          width="100%"
+          border="0"
+          cellspacing="0"
+          cellpadding="0"
+          style="margin-bottom: 4px; font-size: 14px;"
+        >
+          <tr>
+            <td align="left" style="font-size: 14px;">Net Amount</td>
+            <td align="right" style="font-size: 14px;">${{grossAmount}}</td>
+          </tr>
+        </table>
+      {{/if}}
+      <!-- Row: Delivery Fee -->
+      {{#if deliveryAmount}}
+        <table
+          role="presentation"
+          width="100%"
+          border="0"
+          cellspacing="0"
+          cellpadding="0"
+          style="margin-bottom: 4px; font-size: 14px;"
+        >
+          <tr>
+            <td align="left" style="font-size: 14px;">Delivery Fee</td>
+            <td align="right" style="font-size: 14px;">${{deliveryAmount}}</td>
+          </tr>
+        </table>
+      {{/if}}
+      <!-- Row: Tip -->
+      {{#if tipAmount}}
+        <table
+          role="presentation"
+          width="100%"
+          border="0"
+          cellspacing="0"
+          cellpadding="0"
+          style="margin-bottom: 4px; font-size: 14px;"
+        >
+          <tr>
+            <td align="left" style="font-size: 14px;">Tip</td>
+            <td align="right" style="font-size: 14px;">${{tipAmount}}</td>
+          </tr>
+        </table>
+      {{/if}}
+      <!-- Row: Taxes & Fees -->
+      <table
+        role="presentation"
+        width="100%"
+        border="0"
+        cellspacing="0"
+        cellpadding="0"
+        style="margin-bottom: 4px; font-size: 14px;"
+      >
+        <tr>
+          <td align="left" style="font-size: 14px;">Taxes & Fees</td>
+          <td align="right" style="font-size: 14px;">${{taxAmount}}</td>
+        </tr>
+      </table>
+      <!-- Row: Total -->
+      <table
+        role="presentation"
+        width="100%"
+        border="0"
+        cellspacing="0"
+        cellpadding="0"
+        style="margin-top: 8px; font-weight: bold; font-size: 14px;"
+      >
+        <tr>
+          <td align="left" style="font-size: 14px;">Total</td>
+          <td
+            align="right"
+            style="font-size: 14px;"
+          >${{customerPaidAmount}}</td>
+        </tr>
+      </table>
+    </div>
+
+    {{#if specialRemark}}
+      <hr style="border: none; border-top: 1px solid #ddd; margin: 10px 0;" />
+
+      <div style="margin: 8px 10px;">
+        <h2
+          style="margin: 0 0 8px 0; font-size: 12px; font-weight: bold;"
+        >Restaurant Remarks</h2>
+        <p style="margin: 0; font-size: 11px;">{{specialRemark}}</p>
+      </div>
+    {{/if}}
+
+    {{#if appliedDiscount}}
+      <div>
+        <p style="margin: 14px 10px; font-size: 12px;">
+          {{appliedDiscount}}
+        </p>
+      </div>
+    {{/if}}
+
+    {{#if earned}}
+      {{#if notAGuest}}
+        <div>
+          <p style="margin: 14px 10px; font-size: 12px;">
+            You earned
+            <span style="font-weight: bold;">
+              {{earned}}
+            </span>
+            Points for this order
+          </p>
+        </div>
+      {{/if}}
+    {{/if}}
+
+  </body>
+</table>

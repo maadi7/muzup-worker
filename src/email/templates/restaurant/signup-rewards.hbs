@@ -1,0 +1,114 @@
+<table
+  align="center"
+  width="100%"
+  border="0"
+  cellpadding="0"
+  cellspacing="0"
+  role="presentation"
+  style="padding: 0px 12px 25px 12px"
+>
+  <tbody>
+    <tr>
+      <td>
+        <p
+          style="
+                                font-size: 14px;
+                                line-height: 24px;
+                                margin: 24px 0 0 0;
+                                color: #333;
+                              "
+        >
+          Hello
+          {{name}},
+        </p>
+        <p
+          style="
+                                font-size: 14px;
+                                line-height: 24px;
+                                margin: 24px 0;
+                                color: #333;
+                              "
+        >
+          We're thrilled to welcome you to our
+          {{restaurantName}}
+          family!
+        </p>
+        <p
+          style="
+                                font-size: 14px;
+                                line-height: 24px;
+                                margin: 0px;
+                                color: #333;
+                              "
+        >
+          Here's what makes being part of our family special:
+        </p>
+        <ul
+          style="
+                                font-size: 14px;
+                                line-height: 24px;
+                                margin: 5px 24px 0px 0px;
+                                color: #333;
+                              "
+        >
+          <li>Special offers just for you</li>
+          <li>
+            Rewards points on every order you place through our website
+          </li>
+          {{#if showBirthday}}
+            <li>A treat on your birthday</li>
+          {{/if}}
+        </ul>
+
+        <a
+          href="{{buttonLink}}"
+          style="
+            line-height: 100%;
+            text-decoration: none;
+            margin: 10px 0;
+            display: block;
+            width: 100%;
+            background-color: {{buttonBgColor}};
+            border-radius: 6px;
+            color: {{buttonTextColor}};
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px 0;
+            box-sizing: border-box;
+          "
+          target="_blank"
+        >
+          Order Now
+        </a>
+
+        <p
+          style="
+                                font-size: 14px;
+                                line-height: 24px;
+                                margin: 24px 0;
+                                color: #333;
+                              "
+        >
+          As our way of saying thank you, we have credited
+          {{loyaltyPoints}}
+          in your account.
+        </p>
+        <p
+          style="
+                                font-size: 14px;
+                                line-height: 24px;
+                                margin: 24px 0px 0px 0px;
+                                color: #333;
+                              "
+        >
+          Can't wait to serve you!
+          <br />
+          Your
+          {{restaurantName}}
+          Team
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
