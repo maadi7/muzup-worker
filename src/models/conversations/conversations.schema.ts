@@ -7,8 +7,8 @@ import {
   Severity,
 } from "@typegoose/typegoose";
 import { Field, ID, ObjectType } from "type-graphql";
-import { User } from "../user/user.schema";
 import { Message } from "../message/message.schema";
+import { User } from "../user/user.schema";
 
 @ObjectType()
 @ModelOptions({ options: { allowMixed: Severity.ALLOW } })
@@ -21,9 +21,16 @@ export class Conversation {
   @prop({ ref: () => User, required: true })
   participants: Ref<User>[];
 
-  @Field(() => [Message], { nullable: true })
-  @prop({ ref: () => Message, default: [] })
-  messages: Ref<Message>[];
+  // last message info for fast inbox UI
+  @Field(() => Message, { nullable: true })
+  @prop({ ref: () => Message })
+  lastMessage?: Ref<Message>;
+
+  @prop({
+    map: Number, // specify value type
+    default: () => new Map<string, number>(),
+  })
+  unreadCount: Map<string, number>;
 
   @Field(() => Date)
   @prop()

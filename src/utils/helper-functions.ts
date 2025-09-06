@@ -1,17 +1,6 @@
-import {
-  Order,
-  RestaurantEmailCampaignStatusEnum,
-  TransactionType,
-} from "@choose-pos/choose-shared";
 import crypto from "crypto";
 import Joi from "joi";
-import {
-  CustomerModel,
-  LoyaltyPointsTransactionModel,
-  OrderModel,
-  ResEmailCampaignModel,
-  RestaurantModel,
-} from "../models";
+
 import { DateTime } from "luxon";
 import { mongoose } from "@typegoose/typegoose";
 
